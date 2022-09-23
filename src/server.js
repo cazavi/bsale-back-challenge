@@ -1,45 +1,54 @@
-
+const cors = require('cors');
 const express = require('express');
-const { Sequelize } = require('sequelize');
+const Sequelize = require('sequelize');
 const app = express();
 const {username, password, database, host, dialect} = require('../config/config');
-// const {router} = require('./routes')
+const categoryRouter = require('./router/category');
+const productRouter = require('./router/product');
 
 
+
+app.use(cors({
+  origin: '*',
+  credentials: true
+}))
 
 const sequelize = new Sequelize(
   database, username, password,{
     host,
     dialect,
-
   }
-)
-
-// const catModel = sequelize.define('category',{
-//   'id': {type: DataTypes.INTEGER, primaryKey: true},
-//   'name': DataTypes.STRING
-// },  {
-//   tableName: 'category'})
-
-// const productModel = sequelize.define('product',{
-//   'id': {type: DataTypes.INTEGER, primaryKey: true},
-//   'name': DataTypes.STRING,
+  )
+  
+  
+  
+  // const catModel = sequelize.define('category',{
+    //   'id': {type: DataTypes.INTEGER, primaryKey: true},
+    //   'name': DataTypes.STRING
+    // },  {
+      //   tableName: 'category'})
+      
+      // const productModel = sequelize.define('product',{
+        //   'id': {type: DataTypes.INTEGER, primaryKey: true},
+        //   'name': DataTypes.STRING,
 //   'url_image': DataTypes.STRING,
 //   'price': DataTypes.FLOAT,
 //   'discount': DataTypes.INTEGER,
 //   'category': DataTypes.INTEGER
 // },  {
-//   tableName: 'product'})
-
-sequelize.authenticate()
+  //   tableName: 'product'})
+  
+  sequelize.authenticate()
   .then(()=>{
     console.log('CONEXIÓN EXITOSA')
   })
   .catch(error =>{
     console.log('ERROR DE CONEXIÓN:' +error)
   })
-
   
+  
+  const categoryModel = require(`${__dirname}/models/categoryModel`)(sequelize);
+  const productModel = require(`${__dirname}/models/productModel`)(sequelize);
 // catModel.findAll({attributes:['id', 'name']})
 //   .then(catModel =>{
 //     console.log(catModel)
@@ -56,10 +65,15 @@ sequelize.authenticate()
 //     console.log(error)
 //   })
 
-// app.get('/', (req, res) => {
-//   res.json({ msg: 'API conectada ;)' })
-// })
-// app.use('/', router)
+app.get('/', (req, res) => {
+  res.json({ msg: 'API conectada' })
+})
+app.use(express.json())
+app.use('/category', categoryRouter)
+app.use('/product', productRouter)
+
+
+
 
 
 const PORT = process.env.PORT || 8000;
