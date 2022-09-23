@@ -2,7 +2,7 @@
   "name": "back-bsale-challenge",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "./src/server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
@@ -11,8 +11,10 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.18.1",
+    "inherits": "^2.0.4",
     "mysql": "^2.18.1",
     "mysql2": "^2.3.3",
+    "npm": "^8.19.2",
     "sequelize": "^6.23.1"
   }
 }
