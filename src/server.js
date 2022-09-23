@@ -2,13 +2,22 @@
 const express = require('express');
 const { Sequelize } = require('sequelize');
 const app = express();
+const {username, password, database, host, dialect} = require('../config/config');
 // const {router} = require('./routes')
 
 
+// const sequelize = new Sequelize(
+//   'bsale_test', 'bsale_test', 'bsale_test',{
+//     host: 'mdb-test.c6vunyturrl6.us-west-1.rds.amazonaws.com',
+//     dialect: 'mysql',
+
+//   }
+// )
+
 const sequelize = new Sequelize(
-  'bsale_test', 'bsale_test', 'bsale_test',{
-    host: 'mdb-test.c6vunyturrl6.us-west-1.rds.amazonaws.com',
-    dialect: 'mysql',
+  database, username, password,{
+    host,
+    dialect,
 
   }
 )
