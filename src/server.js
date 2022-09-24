@@ -1,17 +1,19 @@
 const cors = require('cors');
 const express = require('express');
-const Sequelize = require('sequelize');
+// const router = express.Router();
+
+const {Sequelize, DataTypes} = require('sequelize');
 const app = express();
 const {username, password, database, host, dialect} = require('../config/config');
-// const categoryRouter = require('./router/category');
-// const productRouter = require('./router/product');
-require('./router/category')(app);
-require('./router/product')(app);
+// const {getCategory} = require('./controllers/getCategory');
+// const {getProduct} = require('./controllers/getProduct');
+
 
 
 
 app.use(cors())
-
+app.use(express.urlencoded({extended:true}))
+app.use(express.json())
 const sequelize = new Sequelize(
   database, username, password,{
     host,
@@ -21,21 +23,21 @@ const sequelize = new Sequelize(
   
   
   
-  // const catModel = sequelize.define('category',{
-    //   'id': {type: DataTypes.INTEGER, primaryKey: true},
-    //   'name': DataTypes.STRING
-    // },  {
-      //   tableName: 'category'})
+  const catModel = sequelize.define('category',{
+      'id': {type: DataTypes.INTEGER, primaryKey: true},
+      'name': DataTypes.STRING
+    },  {
+        tableName: 'category'})
       
-      // const productModel = sequelize.define('product',{
-        //   'id': {type: DataTypes.INTEGER, primaryKey: true},
-        //   'name': DataTypes.STRING,
-//   'url_image': DataTypes.STRING,
-//   'price': DataTypes.FLOAT,
-//   'discount': DataTypes.INTEGER,
-//   'category': DataTypes.INTEGER
-// },  {
-  //   tableName: 'product'})
+      const productModel = sequelize.define('product',{
+          'id': {type: DataTypes.INTEGER, primaryKey: true},
+          'name': DataTypes.STRING,
+  'url_image': DataTypes.STRING,
+  'price': DataTypes.FLOAT,
+  'discount': DataTypes.INTEGER,
+  'category': DataTypes.INTEGER
+},  {
+    tableName: 'product'})
   
   sequelize.authenticate()
   .then(()=>{
@@ -46,31 +48,43 @@ const sequelize = new Sequelize(
   })
   
   
-  const categoryModel = require(`${__dirname}/models/categoryModel`)(sequelize,Sequelize);
-  const productModel = require(`${__dirname}/models/productModel`)(sequelize, Sequelize);
-// catModel.findAll({attributes:['id', 'name']})
-//   .then(catModel =>{
-//     console.log(catModel)
-//   })
-//   .catch( error =>{
-//     console.log(error)
-//   })
-  
-// productModel.findAll({attributes:['id', 'name', 'url_image', 'price', 'discount', 'category' ]})
-//   .then(productModel =>{
-//     console.log(productModel)
-//   })
-//   .catch( error =>{
-//     console.log(error)
-//   })
+  // const categoryModel = require(`${__dirname}/models/categoryModel`)(sequelize,Sequelize);
+  // const productModel = require(`${__dirname}/models/productModel`)(sequelize, Sequelize);
 
-// app.get('/', (req, res) => {
-//   res.json({ msg: 'API conectada' })
+
+  // app.get('/product', (req, res) => { getProduct(req, res) })
+  // app.get('/category', (req, res) => { getCategory(req, res) })
+  // app.get('/test', (req, res)=> {
+  //   res.send('la ruta funciona')
+  // })
+// router.get('/category', (req, res) => {
+//   getCategory(req, res)
 // })
-app.use(express.json())
-// app.use('/category', categoryRouter)
-// app.use('/product', productRouter)
 
+// router.get('/product', (req, res) => {
+//   getProduct(req, res)
+// })
+catModel.findAll({attributes:['id', 'name']})
+  .then(catModel =>{
+    console.log(catModel)
+  })
+  .catch( error =>{
+    console.log(error)
+  })
+  
+productModel.findAll({attributes:['id', 'name', 'url_image', 'price', 'discount', 'category' ]})
+  .then(productModel =>{
+    console.log(productModel)
+  })
+  .catch( error =>{
+    console.log(error)
+  })
+
+app.get('/', (req, res) => {
+  res.json({ msg: 'API conectada' })
+})
+// app.use('/category', router)
+// app.use('/product', router)
 
 
 
