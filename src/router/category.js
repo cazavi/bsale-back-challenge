@@ -3,9 +3,8 @@ const router = express.Router();
 const {getCategory} = require('../controllers/getCategory');
 
 
+module.exports = app => { 
+router.get('/', getCategory)
 
-router.get('/category', (req, res) => {
-  getCategory(req, res)
-})
-
-module.exports= router;
+app.use('/category', router)
+}

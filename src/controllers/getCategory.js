@@ -1,3 +1,5 @@
+const categoryModel = require('../models/categoryModel');
+
 
 const getCategory = (req, res) => {
   categoryModel

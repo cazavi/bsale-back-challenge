@@ -3,15 +3,14 @@ const express = require('express');
 const Sequelize = require('sequelize');
 const app = express();
 const {username, password, database, host, dialect} = require('../config/config');
-const categoryRouter = require('./router/category');
-const productRouter = require('./router/product');
+// const categoryRouter = require('./router/category');
+// const productRouter = require('./router/product');
+require('./router/category')(app);
+require('./router/product')(app);
 
 
 
-app.use(cors({
-  origin: '*',
-  credentials: true
-}))
+app.use(cors())
 
 const sequelize = new Sequelize(
   database, username, password,{
@@ -47,8 +46,8 @@ const sequelize = new Sequelize(
   })
   
   
-  const categoryModel = require(`${__dirname}/models/categoryModel`)(sequelize);
-  const productModel = require(`${__dirname}/models/productModel`)(sequelize);
+  const categoryModel = require(`${__dirname}/models/categoryModel`)(sequelize,Sequelize);
+  const productModel = require(`${__dirname}/models/productModel`)(sequelize, Sequelize);
 // catModel.findAll({attributes:['id', 'name']})
 //   .then(catModel =>{
 //     console.log(catModel)
@@ -65,12 +64,12 @@ const sequelize = new Sequelize(
 //     console.log(error)
 //   })
 
-app.get('/', (req, res) => {
-  res.json({ msg: 'API conectada' })
-})
+// app.get('/', (req, res) => {
+//   res.json({ msg: 'API conectada' })
+// })
 app.use(express.json())
-app.use('/category', categoryRouter)
-app.use('/product', productRouter)
+// app.use('/category', categoryRouter)
+// app.use('/product', productRouter)
 
 
 

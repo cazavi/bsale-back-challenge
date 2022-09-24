@@ -8,7 +8,7 @@ const { Sequelize, DataTypes } = require('sequelize');
 
 //   }
 // )
-module.exports = (sequelize)=>{
+module.exports = (sequelize, Sequelize)=>{
 const productModel = sequelize.define('product',{
   'id': {type: DataTypes.INTEGER, primaryKey: true},
   'name': DataTypes.STRING,

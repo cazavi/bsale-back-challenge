@@ -10,7 +10,7 @@ const { Sequelize, DataTypes } = require('sequelize');
 // )
 
 // console.log(categoryModel === sequelize.models.categoryModel)
-module.exports = (sequelize)=>{
+module.exports = (sequelize, Sequelize)=>{
 const categoryModel = sequelize.define('category',{
   'id': {type: DataTypes.INTEGER, primaryKey: true},
   'name': DataTypes.STRING

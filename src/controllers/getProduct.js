@@ -1,8 +1,8 @@
 const {productModel} = require('../models/productModel');
-
+const express = require('express');
 const getProduct = (req, res) => {
   productModel
-  findAll({attributes:['id', 'name', 'url_image', 'price', 'discount', 'category' ]})
+  .findAll({attributes:['id', 'name', 'url_image', 'price', 'discount', 'category' ]})
     .then((result) => {
       return res.status(200).json({ success: true, message: "Operación exitosa", result })
     })
