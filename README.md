@@ -4,27 +4,26 @@
 Tecnologías utilizadas: Express, Javascript, MySQL, Sequelize.
 
 ```
-```
 **Sugerencia para el manejo**
 [Axios](https://axios-http.com/) librería JavaScript para generar las operaciones como cliente HTTP.
 ```
-```
+
 ## Uso de la API
 
 ### Manejo de Categorías / Productos
 
 Para el manejo es la misma estructura de petición con axios y la respuesta, sólo cambia la ruta:
 
-_Ruta requerida productos: `http://localhost:8000/product`_
+_Ruta requerida productos: `https://bsaleapichallenge.herokuapp.com/product`_
 
-_Ruta requerida categorías: `http://localhost:8000`_
+_Ruta requerida categorías: `https://bsaleapichallenge.herokuapp.com`_
   
 _Uso de Axios para hacer la petición HTTP_
   _Método_: `GET`
   
   ```javascript
   axios
-  .get('http://localhost:8000')
+  .get('https://bsaleapichallenge.herokuapp.com')
   .then((response)=> {
     console.log(response.data)
   })
@@ -49,9 +48,7 @@ _Uso de Axios para hacer la petición HTTP_
     ]
 }
 ```
-
 *Link repositorio de referencia*: https://github.com/cazavi/bsale-front-challenge
-
 ```
 
 
