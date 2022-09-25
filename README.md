@@ -48,6 +48,8 @@ _Uso de Axios para hacer la petición HTTP_
     ]
 }
 ```
+
+```
 *Link repositorio de referencia*: https://github.com/cazavi/bsale-front-challenge
 ```
 
