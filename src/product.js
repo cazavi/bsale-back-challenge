@@ -5,7 +5,7 @@ const {
   database,
   host,
   dialect,
-} = require("../config/config");
+} = require("../config");
 
 const sequelize = new Sequelize(database, username, password, {
   host,

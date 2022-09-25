@@ -9,7 +9,7 @@ const {
   database,
   host,
   dialect,
-} = require("../config/config");
+} = require("../config");
 const { getProduct } = require("./product");
 
 app.use(cors());
