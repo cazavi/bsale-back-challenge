@@ -17,9 +17,9 @@ Para el manejo es la misma estructura de petición con axios y la respuesta, só
 
 _Ruta requerida productos: `http://localhost:8000/product`_
 
-  _Ruta requerida: `http://localhost:8000`_
+_Ruta requerida categorías: `http://localhost:8000`_
   
-  _Uso de Axios para hacer la petición HTTP_
+_Uso de Axios para hacer la petición HTTP_
   _Método_: `GET`
   
   ```javascript
