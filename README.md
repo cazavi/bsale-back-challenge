@@ -3,10 +3,8 @@
 
 Tecnologías utilizadas: Express, Javascript, MySQL, Sequelize.
 
-```
 **Sugerencia para el manejo**
 [Axios](https://axios-http.com/) librería JavaScript para generar las operaciones como cliente HTTP.
-```
 
 ## Uso de la API
 
@@ -49,8 +47,7 @@ _Uso de Axios para hacer la petición HTTP_
 }
 ```
 
-```
-*Link repositorio de referencia*: https://github.com/cazavi/bsale-front-challenge
-```
+_Link repositorio de referencia: `https://github.com/cazavi/bsale-front-challenge`_
+
 
 
