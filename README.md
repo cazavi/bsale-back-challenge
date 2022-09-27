@@ -29,6 +29,7 @@ _Uso de Axios para hacer la petición HTTP_
   .catch((error)=> {
     console.log(error)
   })
+  ```
 
   async y await
   ```javascript
@@ -40,10 +41,12 @@ _Uso de Axios para hacer la petición HTTP_
       console.log(error);
     }
   }
+ ```
  
- 
-*Ejemplo de respuesta*    
+*Ejemplo de respuesta* 
+
 ```json
+
 {
     "message": "Operación exitosa",
     "result": [
