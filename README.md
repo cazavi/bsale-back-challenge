@@ -17,8 +17,9 @@ _Ruta requerida productos: `https://bsaleapichallenge.herokuapp.com/product`_
 _Ruta requerida categorías: `https://bsaleapichallenge.herokuapp.com`_
   
 _Uso de Axios para hacer la petición HTTP_
-  _Método_: `GET` con then y catch
+  _Método_: `GET` 
   
+  then y catch
   ```javascript
   axios
   .get('https://bsaleapichallenge.herokuapp.com')
@@ -29,7 +30,7 @@ _Uso de Axios para hacer la petición HTTP_
     console.log(error)
   })
 
-  _Método_: `GET` con async y await
+  async y await
   ```javascript
   const getProducts = async (categoryIndex) => {
     try {
@@ -39,7 +40,8 @@ _Uso de Axios para hacer la petición HTTP_
       console.log(error);
     }
   }
-    
+ 
+ 
 *Ejemplo de respuesta*    
 ```json
 {
