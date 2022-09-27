@@ -1,7 +1,7 @@
 # BSale Product API
   Proyecto creado como reto técnico para empresa Bsale.
 
-Tecnologías utilizadas: Express, Javascript, MySQL, Sequelize.
+Tecnologías utilizadas: Express, Nodejs, MySQL, Sequelize.
 
 **Sugerencia para el manejo**
 [Axios](https://axios-http.com/) librería JavaScript para generar las operaciones como cliente HTTP.
